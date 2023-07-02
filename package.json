@@ -1,0 +1,22 @@
+{
+  "name": "fcc-nodejs",
+  "version": "1.0.0",
+  "description": "fcc-nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atprastyo/code-camp.git"
+  },
+  "keywords": [
+    "fcc-nodejs"
+  ],
+  "author": "atprastyo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atprastyo/code-camp/issues"
+  },
+  "homepage": "https://github.com/atprastyo/code-camp#readme"
+}
