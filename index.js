@@ -36,9 +36,9 @@ app.get("/api/:date?", function(req, res) {
   } else {
     let intDate = parseInt(date);
     if (/\d{5,}/.test(intDate)) {
-      response = new Date(date);
-    } else {
       response = new Date(intDate);
+    } else {
+      response = new Date(date);
     }
     console.log(response);
   }
