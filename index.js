@@ -34,10 +34,16 @@ app.get("/api/:date?", function (req, res) {
     }
     console.log(response);
   }
-  return res.json({
-    unix: response.getTime(),
-    utc: response.toUTCString(),
-  });
+  if (response.toString().includes("Invalid")) {
+    return res.json({
+      error: response.toUTCString(),
+    });
+  } else {
+    return res.json({
+      unix: response.getTime(),
+      utc: response.toUTCString(),
+    });
+  }
 });
 
 // your first API endpoint...
@@ -46,6 +52,6 @@ app.get("/api/hello", function (req, res) {
 });
 
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
+var listener = app.listen(process.env.PORT || "5555", function () {
   console.log("Your app is listening on port " + listener.address().port);
 });
