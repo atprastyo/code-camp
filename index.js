@@ -3,6 +3,7 @@
 
 // init project
 var express = require("express");
+var multer  = require('multer');
 var app = express();
 
 // enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
@@ -61,6 +62,17 @@ app.get("/api/whoami", (req, resp) => {
     language: headers["accept-language"] || headers["content-language"],
     software: headers["user-agent"],
   });
+});
+
+app.post("/api/fileanalyse",
+  //'upfile' from the form input in index.html
+  multer({ dest: 'uploadedFiles/' }).single('upfile'),
+  (req, res) => {
+    res.json({
+      name: req.file.originalname,
+      type: req.file.mimetype,
+      size: req.file.size,
+    });
 });
 
 // listen for requests :)
